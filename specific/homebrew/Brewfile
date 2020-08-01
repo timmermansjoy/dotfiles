@@ -1,0 +1,13 @@
+cask_args appdir: '/Applications'
+
+tap 'homebrew/bundle'
+
+brew 'coreutils'
+brew 'fzf' # fuzzy finder
+brew 'openssl'
+brew 'readline'
+brew 'zsh-syntax-highlighting'
+brew 'zsh'
+
+cask 'google-chrome'
+cask 'visual-studio-code'
