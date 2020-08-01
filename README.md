@@ -1,11 +1,11 @@
 # dotfiles
 
-This project is heavily inspired by @holman [dotfiles](https://github.com/holman/dotfiles). I've added [`oh-my-zsh`](https://ohmyz.sh/), changed the whole structure, and simplified a lot the version management for programming languages by using [`asdf`](https://asdf-vm.com/).
+This project is heavily inspired by @holman [dotfiles](https://github.com/holman/dotfiles). this project added [`oh-my-zsh`](https://ohmyz.sh/) and changed the whole structure
 
 ## install
 
 ```sh
-git clone https://github.com/rafaeleyng/dotfiles.git ~/.dotfiles
+git clone https://github.com/timmermansjoy/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 scripts/dotfiles-install.sh
 ```
@@ -31,6 +31,7 @@ The most notable folders are:
 ## extensions
 
 I can have a basic dotfiles project and isolate specifics, like:
+
 - I want my work computer to have some specific files
 - I want my personal computer to have other specific files
 
@@ -58,7 +59,6 @@ The currently supported extension files you can have inside your extensions proj
 Here are some of the most useful software included in this dotfiles:
 
 - utilities:
-  - [`asdf`](https://asdf-vm.com/): version manager for several technologies. Replaces tools like `nvm`, `pyenv`, `rbenv` and others
   - [`z`](https://github.com/rupa/z)
 - commands:
   - `e`: opens my favorite text editor
@@ -68,11 +68,8 @@ Here are some of the most useful software included in this dotfiles:
   - `c <tab>`, a function to go to my code folders (copied from @ryanb [dotfiles](https://github.com/ryanb/dotfiles/blob/master/oh-my-zsh/custom/plugins/rbates/rbates.plugin.zsh))
   - `extract <file>`: knows how to unzip several formats
 - aliases:
-  - `chrome [<filename>]`: to open Google Chrome
   - `pubkey`: copy `~/.ssh/id_rsa.pub` to clipboard
 
 ## references
 
 - https://github.com/holman/dotfiles
-- https://github.com/holman/dotfiles/issues/70: I renamed in this project every occurrence of the variable `ZSH` to `DOTFILES`, to avoid conflicts between dotfiles and oh-my-zsh.
-- https://unix.stackexchange.com/questions/151889/why-does-bashs-source-command-behave-differently-when-called-from-a-function: I've used this question to source my files, but if you can understand what is happening (look at all my questions in the comments of the answers) please explain to me.
