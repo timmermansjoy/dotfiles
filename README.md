@@ -6,8 +6,7 @@ This project is heavily inspired by @holman [dotfiles](https://github.com/holman
 
 ```sh
 git clone https://github.com/timmermansjoy/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-scripts/dotfiles-install.sh
+~/.dotfiles/scripts/dotfiles-install.sh
 ```
 
 ## folders
