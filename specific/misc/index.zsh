@@ -11,8 +11,8 @@ function wifi_password {
 }
 
 #ease of use aliases
-alias localh="open http://localhost:8080"
-alias dotfiles='e ~/.dotfiles'
+alias lhost="open http://localhost:8080"
+alias dotfile='e ~/.dotfiles'
 alias cpu="htop"
 
 # Programs shortcuts
