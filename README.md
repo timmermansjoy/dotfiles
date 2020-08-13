@@ -59,15 +59,15 @@ Here are some of the most useful software included in this dotfiles:
 
 - utilities:
   - [`z`](https://github.com/rupa/z)
+  - `weather [place]` shows the weather for that place, default is Hasselt 
 - commands:
-  - `e`: opens my favorite text editor
+  - `e`: opens the selected favorite text editor
   - `todo <text>`: creates a file on desktop to remind a to-do
   - `update`: runs all `*/update.sh` files
 - functions:
-  - `c <tab>`, a function to go to my code folders (copied from @ryanb [dotfiles](https://github.com/ryanb/dotfiles/blob/master/oh-my-zsh/custom/plugins/rbates/rbates.plugin.zsh))
   - `extract <file>`: knows how to unzip several formats
 - aliases:
-  - `pubkey`: copy `~/.ssh/id_rsa.pub` to clipboard
+  - `dotfiles`: opens the favorite editor and this folder. if installed propperly
 
 ## references
 
