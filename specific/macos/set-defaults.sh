@@ -44,3 +44,11 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 
 # use AirDrop over every interface
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+
+
+####################
+# [dock]
+####################
+
+# make dock come up faster
+defaults write com.apple.dock autohide-delay -float 0

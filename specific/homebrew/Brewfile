@@ -11,6 +11,8 @@ brew 'zsh-syntax-highlighting'
 brew 'zsh'
 brew 'htop'
 brew 'neofetch'
+brew 'mas'
 
 cask 'google-chrome'
 cask 'visual-studio-code'
+cask 'appcleaner'

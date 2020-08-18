@@ -12,9 +12,12 @@ function wifi_password {
 
 #ease of use aliases
 alias lhost="open http://localhost:8080"
+alias localh="open http://localhost:8080"
 alias dotfile='e ~/.dotfiles'
+alias dotfiles='e ~/.dotfiles'
 alias cpu="htop"
 
 # Programs shortcuts
 alias s="osascript -e 'tell application \"Safari\" to activate'"
 alias disc="osascript -e 'tell application \"Discord\" to activate'"
+
