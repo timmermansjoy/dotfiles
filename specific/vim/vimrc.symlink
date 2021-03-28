@@ -2,7 +2,7 @@ set runtimepath+=~/.vim_runtime
 call plug#begin('~/.vim/plugged')
 
 
-autocmd vimenter * NERDTree
+
 
 source ~/.vim_runtime/vimrcs/basic.vim
 source ~/.vim_runtime/vimrcs/filetypes.vim
@@ -32,6 +32,7 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+autocmd vimenter * NERDTree
 autocmd VimEnter * wincmd p
 nmap <F6> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

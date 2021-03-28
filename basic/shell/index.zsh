@@ -79,6 +79,7 @@ source $DOTFILES/basic/shell/custom.sh
 
 chpwd() ls -F
 alias myip="curl http://ipecho.net/plain; echo"
+alias cp="cp -i"
 
 function top_commands {
   cat ~/.zsh_history | format_history | head -n20
@@ -95,3 +96,7 @@ function format_history {
     awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}'|
     sort -rn
 }
+
+
+
+plugins=(zsh-syntax-highlighting)

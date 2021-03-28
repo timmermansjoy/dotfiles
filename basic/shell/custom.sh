@@ -8,7 +8,10 @@ if [[ -f ~/.fzf.zsh ]]; then
   source ~/.fzf.zsh
 fi
 alias preview="fzf --preview 'bat --color \"always\" {}'"
-# add support for ctrl+o to open selected file in the default text editor
+alias pxl="cd /Users/Joy/Stack/PXL/2e\ jaar/2e\ semester"
+alias rm="rm -rf"
+alias finder="open ."
+# add support for ctrlf+o to open selected file in the default text editor
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(e {})+abort'"
 
 # TODO make completions work

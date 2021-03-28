@@ -1,5 +1,7 @@
 cask_args appdir: '/Applications'
 
+repo = 'popcorn-official/popcorn-desktop'
+tap repo, "https://github.com/#{repo}.git"
 tap 'homebrew/bundle'
 
 brew 'coreutils'
@@ -12,7 +14,11 @@ brew 'zsh'
 brew 'htop'
 brew 'neofetch'
 brew 'mas'
+brew 'tmux'
 
 cask 'google-chrome'
 cask 'visual-studio-code'
 cask 'appcleaner'
+cask 'popcorn-time'
+
+mas "com.apple.iWork.Pages", id: 409201541 # Pages
