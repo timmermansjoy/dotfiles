@@ -98,5 +98,4 @@ function format_history {
 }
 
 
-
-plugins=(zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions)
