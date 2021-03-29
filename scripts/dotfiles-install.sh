@@ -121,7 +121,6 @@ setup_gitconfig
 install_dotfiles
 
 info "installing dependencies"
-# shellcheck source=.dotfiles/scripts/dependencies-install.sh
 if source ~/.dotfiles/scripts/dependencies-install.sh
 then
   success "dependencies installed"
