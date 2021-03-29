@@ -21,4 +21,4 @@ cask 'visual-studio-code'
 cask 'appcleaner'
 cask 'popcorn-time'
 
-mas "com.apple.iWork.Pages", id: 409201541 # Pages
+mas "magnet", id: 441258766
