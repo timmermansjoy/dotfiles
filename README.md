@@ -4,9 +4,22 @@ This project is heavily inspired by @holman [dotfiles](https://github.com/holman
 
 ## install
 
+install zsh
+
+```sh
+apt update
+apt install zsh
+```
+
 ```sh
 git clone https://github.com/timmermansjoy/dotfiles.git ~/.dotfiles
 ~/.dotfiles/scripts/dotfiles-install.sh
+```
+
+afterwards set zsh as the default shell
+
+```sh
+chsh -s $(which zsh)
 ```
 
 ## folders
