@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+if [[ "$(uname)" == "Darwin" ]]; then
 # https://github.com/holman/dotfiles/blob/master/macos/set-defaults.sh
 # https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 # https://github.com/cristiandean/dotfiles/blob/master/osx_config
@@ -52,3 +54,4 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 # make dock come up faster
 defaults write com.apple.dock autohide-delay -float 0
+fi

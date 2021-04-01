@@ -13,3 +13,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
+if [[ "$(uname)" == "Linux" ]]; then
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi

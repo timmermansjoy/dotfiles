@@ -128,5 +128,10 @@ else
   fail "error installing dependencies"
 fi
 
+
+if [[ "$(uname)" == "Linux" ]]; then
+  xargs sudo apt-get install < ~/.dotfiles/Linux/packages.txt
+fi
+
 echo ''
 success '  All installed!'
