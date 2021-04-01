@@ -134,7 +134,7 @@ if [[ "$(uname)" == "Linux" ]]; then
   then
     success "packages installed"
     info "setting zsh as default shell"
-    chsh -s "$(which zsh)"
+    chsh -s "$(command -v zsh)"
   else
     fail "error installing dependencies"
   fi
