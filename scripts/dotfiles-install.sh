@@ -120,8 +120,6 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-#install dependecies on mac
-if [[ "$(uname)" == "Mac" ]]; then
   info "installing dependencies"
   if source ~/.dotfiles/scripts/dependencies-install.sh
   then
@@ -129,8 +127,6 @@ if [[ "$(uname)" == "Mac" ]]; then
   else
     fail "error installing dependencies"
   fi
-fi
-
 #install packages on linux
 if [[ "$(uname)" == "Linux" ]]; then
   info "installing packages"
