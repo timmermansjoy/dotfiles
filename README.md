@@ -4,12 +4,7 @@ This project is heavily inspired by @holman [dotfiles](https://github.com/holman
 
 ## install
 
-install zsh (linux)
-
-```sh
-apt update
-apt install zsh
-```
+all you have to do is clone the reposetory in ` ~/.dotfiles` the script should do the rest
 
 ```sh
 git clone https://github.com/timmermansjoy/dotfiles.git ~/.dotfiles
@@ -32,6 +27,7 @@ The most notable folders are:
   - `shell`: configurations for my shell ([zsh](http://zsh.sourceforge.net/))
 - `specific`: each subfolder contains configuration for some specific technology (like Git, Pyhton, ...):
   - `oh-my-zsh`: my configuration for [oh-my-zsh](https://ohmyz.sh/)
+- `Linux`: in `packages.txt` are programs that will get installed while running the script
 
 ## special files
 
@@ -42,6 +38,8 @@ The most notable folders are:
 
 Here are some of the most useful software included in this dotfiles:
 
+- `zsh-syntax-highlighting` will highlight your commands to make sure they will work
+- `zsh-autosuggestions` tries to autocomplete commadns you have input previously, you can complete with `Cntrl+right-arrow`
 - utilities:
   - `weather [place]` shows the weather for that place, default is Hasselt
 - commands:
