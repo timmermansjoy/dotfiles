@@ -3,4 +3,3 @@ tmux
 htop
 neofetch
 zsh-syntax-highlighting
-zsh-autosuggestions
