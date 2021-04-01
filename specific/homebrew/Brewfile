@@ -13,9 +13,11 @@ brew 'zsh'
 brew 'zsh-syntax-highlighting'
 brew 'zsh-autosuggestions'
 brew 'htop'
-brew 'neofetch'
 brew 'mas'
+
+brew 'neofetch'
 brew 'tmux'
+brew 'vim'
 
 cask 'google-chrome'
 cask 'visual-studio-code'

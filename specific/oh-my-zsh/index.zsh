@@ -2,10 +2,11 @@ export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(docker git z brew osx docker-machine virtualenv)
+plugins=(docker python git z brew osx docker-machine virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
-#installed plugins in zshrc, dont know why i cant put them there but gives issues with syntax-highlighting
+
+# Plugins that are in /shell/index but doesnt work propperly when put these there
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
