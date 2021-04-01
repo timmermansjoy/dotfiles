@@ -5,6 +5,7 @@
 function top_commands {
   cat ~/.zsh_history | format_history | head -n20
 }
+
 alias tc=top_commands
 
 function top_recent_commands {
