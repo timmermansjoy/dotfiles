@@ -1,0 +1,38 @@
+set runtimepath+=~/.vim_runtime
+call plug#begin('~/.vim/plugged')
+
+
+
+
+source ~/.vim_runtime/vimrcs/basic.vim
+source ~/.vim_runtime/vimrcs/filetypes.vim
+source ~/.vim_runtime/vimrcs/plugins_config.vim
+source ~/.vim_runtime/vimrcs/extended.vim
+
+set ai
+set ruler
+set number
+set mouse=a
+syntax on
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient pointssyntax on
+
+try
+source ~/.vim_runtime/my_configs.vim
+catch
+endtry
+
+call plug#begin()
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+call plug#end()
+
+let g:NERDTreeWinPos = "left"
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+autocmd vimenter * NERDTree
+autocmd VimEnter * wincmd p
+nmap <F6> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

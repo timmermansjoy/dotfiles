@@ -1,18 +1,51 @@
 #!/bin/bash
 
-########################################
-# fzf - https://github.com/junegunn/fzf
-########################################
-if [[ -f ~/.fzf.zsh ]]; then
-  # shellcheck disable=SC1090
-  source ~/.fzf.zsh
-fi
-alias preview="fzf --preview 'bat --color \"always\" {}'"
-alias pxl="cd /Users/Joy/Stack/PXL/2e\ jaar/2e\ semester"
-alias rm="rm -rf"
-alias finder="open ."
-# add support for ctrlf+o to open selected file in the default text editor
-export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(e {})+abort'"
+# Custom functions
 
-# TODO make completions work
-# . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+function top_commands {
+  cat ~/.zsh_history | format_history | head -n20
+}
+alias tc=top_commands
+
+function top_recent_commands {
+  tail -n1000 ~/.zsh_history | format_history | head -n20
+}
+alias trc=top_recent_commands
+
+function format_history {
+  cut -d ';' -f 2- 2>/dev/null |
+    awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}'|
+    sort -rn
+}
+
+# Get weather report
+function weather {
+   curl -s "http://wttr.in/${1:-Hasselt}" | head -n 27
+}
+alias weer="weather"
+
+# Get wifi password of given SSID
+function wifi_password {
+  wifi_name=$1
+  security find-generic-password -ga $wifi_name | grep “password:”
+}
+
+
+#remap defaults
+alias rm="rm -rf"
+alias cp="cp -i"
+
+
+#ease of use aliases
+alias lhost="open http://localhost:8080"
+alias localh="open http://localhost:8080"
+alias dotfile='e ~/.dotfiles'
+alias dotfiles='e ~/.dotfiles'
+alias cpu="htop"
+alias myip="curl http://ipecho.net/plain; echo"
+alias finder="open ."
+alias pxl="cd /Users/Joy/Stack/PXL/2e\ jaar/2e\ semester"
+
+# Programs shortcuts
+alias s="osascript -e 'tell application \"Safari\" to activate'"
+alias disc="osascript -e 'tell application \"Discord\" to activate'"

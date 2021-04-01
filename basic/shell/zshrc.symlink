@@ -7,15 +7,6 @@ fi
 
 export DOTFILES=$HOME/.dotfiles
 SYSTEM_CONFIG=$DOTFILES/basic/system/index.zsh
-TIME_START=$(($(gdate +%s%N) / 1000000))
-
-local function compute_load_time () {
-  local START=$1
-  local END=$(($(gdate +%s%N) / 1000000))
-  if [[ $DOTFILES_DEBUG = "1" ]]; then
-    echo "$((END-START)) mili-seconds"
-  fi
-}
 
 # https://unix.stackexchange.com/a/151896/148053 - I don't understand, but it is what it is
 local function _source () {
@@ -74,9 +65,7 @@ source_extensions
 autoload -U compinit
 compinit
 
-compute_load_time $TIME_START
 
-# TODO move to specific folder
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
