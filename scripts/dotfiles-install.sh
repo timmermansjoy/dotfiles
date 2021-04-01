@@ -137,6 +137,8 @@ if [[ "$(uname)" == "Linux" ]]; then
   if source ~/.dotfiles/scripts/dependencies-install-linux.sh
   then
     success "packages installed"
+    info "setting zsh as default shell"
+    chsh -s $(which zsh)
   else
     fail "error installing dependencies"
   fi
