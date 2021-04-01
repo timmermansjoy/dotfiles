@@ -4,7 +4,7 @@ This project is heavily inspired by @holman [dotfiles](https://github.com/holman
 
 ## install
 
-install zsh
+install zsh (linux)
 
 ```sh
 apt update
