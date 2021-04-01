@@ -28,7 +28,7 @@ alias weer="weather"
 # Get wifi password of given SSID
 function wifi_password {
   wifi_name=$1
-  security find-generic-password -ga $wifi_name | grep “password:”
+  security find-generic-password -ga $wifi_name | grep 'password:'
 }
 
 
