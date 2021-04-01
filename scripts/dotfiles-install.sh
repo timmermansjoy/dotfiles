@@ -120,17 +120,26 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-info "installing dependencies"
-if source ~/.dotfiles/scripts/dependencies-install.sh
-then
-  success "dependencies installed"
-else
-  fail "error installing dependencies"
+#install dependecies on mac
+if [[ "$(uname)" == "Mac" ]]; then
+  info "installing dependencies"
+  if source ~/.dotfiles/scripts/dependencies-install.sh
+  then
+    success "dependencies installed"
+  else
+    fail "error installing dependencies"
+  fi
 fi
 
-
+#install packages on linux
 if [[ "$(uname)" == "Linux" ]]; then
-  xargs sudo apt-get install < ~/.dotfiles/Linux/packages.txt
+  info "installing packages"
+  if source ~/.dotfiles/scripts/dependencies-install-linux.sh
+  then
+    success "packages installed"
+  else
+    fail "error installing dependencies"
+  fi
 fi
 
 echo ''
