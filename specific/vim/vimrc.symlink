@@ -5,8 +5,13 @@ set number
 set mouse=a
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient pointssyntax on
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set tabstop=2    
+set shiftwidth=2 
+set expandtab    "Make tabs spaces
 set hlsearch
 highlight Comment ctermfg=green
+
+nnoremap <esc><esc> :silent! nohls<cr>
+nnoremap <D-c> "*y
+nnoremap <D-v> "*p
+
