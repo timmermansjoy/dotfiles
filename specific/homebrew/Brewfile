@@ -4,17 +4,22 @@ repo = 'popcorn-official/popcorn-desktop'
 tap repo, "https://github.com/#{repo}.git"
 tap 'homebrew/bundle'
 
+#programming
+brew 'python'
+brew 'node'
+
 brew 'coreutils'
-brew 'bat'
+brew 'bat' # cat with syntax highlighting
 brew 'fzf' # fuzzy finder
 brew 'openssl'
 brew 'readline'
+brew 'mas' # for brew to install app store apps
+
+#shell
 brew 'zsh'
 brew 'zsh-syntax-highlighting'
 brew 'zsh-autosuggestions'
 brew 'htop'
-brew 'mas'
-
 brew 'neofetch'
 brew 'tmux'
 brew 'vim'
