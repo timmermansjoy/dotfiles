@@ -12,6 +12,6 @@ set hlsearch
 highlight Comment ctermfg=green
 
 nnoremap <esc><esc> :silent! nohls<cr>
-nnoremap <D-c> "*y
-nnoremap <D-v> "*p
+nnoremap <C-c> "*y
+nnoremap <C-v> "*p
 

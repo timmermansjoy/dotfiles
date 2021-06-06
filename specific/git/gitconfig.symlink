@@ -34,3 +34,6 @@
 [pager]
   branch = false
   tag = false
+[user]
+	email = 61321383+timmermansjoy@users.noreply.github.com
+	name = timmermansjoy

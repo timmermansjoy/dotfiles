@@ -1,0 +1,13 @@
+# Description: creates a venv enviorment if there is none in the directory otherwise go inside
+
+activate () {
+    if [ ! -d "./.venv" ];   then
+        printf "\r  [ \033[00;34m..\033[0m ] %s\n" "Creating \".venv\" directory."
+        python3 -m venv .venv
+        printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "successfully created directory"
+        . .venv/bin/activate
+
+      else
+        . .venv/bin/activate
+    fi
+}

@@ -27,6 +27,11 @@ brew 'vim'
 cask 'google-chrome'
 cask 'visual-studio-code'
 cask 'appcleaner'
+cask 'dozer'
+
 cask 'popcorn-time'
+cask 'parallels'
+cask 'parsec'
+
 
 mas "magnet", id: 441258766
