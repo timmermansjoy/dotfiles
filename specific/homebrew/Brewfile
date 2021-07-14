@@ -32,6 +32,8 @@ cask 'dozer'
 cask 'popcorn-time'
 cask 'parallels'
 cask 'parsec'
+cask 'iina'
 
 
 mas "magnet", id: 441258766
+mas "Craft", id: 1487937127
