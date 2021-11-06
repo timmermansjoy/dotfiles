@@ -21,4 +21,10 @@ sudo apt install -y docker-ce
 sudo usermod -aG docker "${USER}"
 
 info "install the packages inside specific/linux/packages.txt"
-xargs sudo apt -y -qq install < ~/.dotfiles/specific/linux/packages.txt
+xargs sudo apt -y -qq install <~/.dotfiles/specific/linux/packages.txt
+
+# run all dotfiles installers
+export DOTFILES="$HOME/.dotfiles"
+
+cd "$(dirname "$0")"/.. || exit
+find -H "$DOTFILES" -maxdepth 4 -name 'install.sh' -not -path '*.git*' -exec sh -c 'FILE="$1"; "$FILE"' _ {} \;

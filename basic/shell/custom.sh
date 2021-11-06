@@ -15,13 +15,13 @@ alias trc=top_recent_commands
 
 function format_history {
   cut -d ';' -f 2- 2>/dev/null |
-    awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}'|
+    awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}' |
     sort -rn
 }
 
 # Get weather report
 function weather {
-   curl -s "http://wttr.in/${1:-Hasselt}" | head -n 27
+  curl -s "http://wttr.in/${1:-Hasselt}" | head -n 27
 }
 alias weer="weather"
 
@@ -31,11 +31,9 @@ function wifi_password {
   security find-generic-password -ga "$wifi_name" | grep "password:"
 }
 
-
 #remap defaults
 alias rm="rm -rf"
 alias cp="cp -i"
-
 
 #ease of use aliases
 alias lhost="open http://localhost:8080"
@@ -45,7 +43,7 @@ alias dotfiles='e ~/.dotfiles'
 alias cpu="htop"
 alias myip="curl http://ipecho.net/plain; echo"
 alias finder="open ."
-alias pxl="cd /Users/Joy/Stack/PXL/2e\ jaar/2e\ semester"
+alias pxl="cd /Users/Joy/Stack/PXL/3e\ jaar"
 
 # Programs shortcuts
 alias s="osascript -e 'tell application \"Safari\" to activate'"

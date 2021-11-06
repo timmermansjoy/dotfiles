@@ -5,25 +5,25 @@ export DOTFILES="$HOME/.dotfiles"
 
 echo ''
 
-info () {
+info() {
   printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
 }
 
-user () {
+user() {
   printf "\r  [ \033[0;33m??\033[0m ] %s\n" "$1"
 }
 
-success () {
+success() {
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
 }
 
-fail () {
+fail() {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] %s\n" "$1"
   echo ''
   exit
 }
 
-setup_gitconfig () {
+setup_gitconfig() {
   if ! [ -f specific/git/gitconfig-local.symlink ]; then
     info 'setup gitconfig'
 
@@ -35,14 +35,13 @@ setup_gitconfig () {
     sed \
       -e "s/AUTHORNAME/$git_authorname/g" \
       -e "s/AUTHOREMAIL/$git_authoremail/g" \
-      specific/git/gitconfig-local.symlink.example > specific/git/gitconfig-local.symlink
+      specific/git/gitconfig-local.symlink.example >specific/git/gitconfig-local.symlink
 
     success 'gitconfig'
   fi
 }
 
-
-link_file () {
+link_file() {
   local SRC=$1 DST=$2
 
   local overwrite='' backup='' skip=''
@@ -54,27 +53,33 @@ link_file () {
       currentSrc="$(readlink "$DST")"
 
       if [ "$currentSrc" == "$SRC" ]; then
-        skip=true;
+        skip=true
       else
         user "File already exists: $DST ($(basename "$SRC")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -r -n 1 action
 
         case "$action" in
-          o )
-            overwrite=true;;
-          O )
-            overwrite_all=true;;
-          b )
-            backup=true;;
-          B )
-            backup_all=true;;
-          s )
-            skip=true;;
-          S )
-            skip_all=true;;
-          * )
-            ;;
+        o)
+          overwrite=true
+          ;;
+        O)
+          overwrite_all=true
+          ;;
+        b)
+          backup=true
+          ;;
+        B)
+          backup_all=true
+          ;;
+        s)
+          skip=true
+          ;;
+        S)
+          skip_all=true
+          ;;
+        *) ;;
+
         esac
       fi
     fi
@@ -105,7 +110,7 @@ link_file () {
   fi
 }
 
-install_dotfiles () {
+install_dotfiles() {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
@@ -120,25 +125,24 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-  info "installing dependencies"
-  if source ~/.dotfiles/scripts/dependencies-install.sh
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
-#install packages on linux
-if [[ "$(uname)" == "Linux" ]]; then
-  info "installing packages"
-  if source ~/.dotfiles/scripts/dependencies-install-linux.sh
-  then
-    success "packages installed"
-    info "setting zsh as default shell"
-    chsh -s "$(command -v zsh)"
-  else
-    fail "error installing dependencies"
-  fi
+info "installing dependencies"
+if source ~/.dotfiles/scripts/dependencies-install.sh; then
+  success "dependencies installed"
+else
+  fail "error installing dependencies"
 fi
+#install packages on linux
+# if [[ "$(uname)" == "Linux" ]]; then
+#   info "installing packages"
+#   if source ~/.dotfiles/scripts/dependencies-install-linux.sh
+#   then
+#     success "packages installed"
+#     info "setting zsh as default shell"
+#     chsh -s "$(command -v zsh)"
+#   else
+#     fail "error installing dependencies"
+#   fi
+# fi
 
 echo ''
 success '  All installed!'

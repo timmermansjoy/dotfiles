@@ -2,6 +2,8 @@
 
 This project is heavily inspired by @holman [dotfiles](https://github.com/holman/dotfiles). this project added [`oh-my-zsh`](https://ohmyz.sh/) and changed the whole structure
 
+These dotfiles work both on MacOS and Linux (tested on Ubuntu)
+
 ## install
 
 all you have to do is clone the reposetory in ` ~/.dotfiles` the script should do the rest
@@ -33,13 +35,14 @@ The most notable folders are:
 
 - `*/index.zsh`: files called `index.zsh` get loaded into your environment when a shell is loaded
 - `*/*.symlink`: files ending in `*.symlink` get symlinked (without the `*.symlink` extension) into your `$HOME` when you run `scripts/dotfiles-install.sh`
+- `*/update.sh`: files called update.sh will get executed when running the `update` command
 
 ## highlights
 
 Here are some of the most useful software included in this dotfiles:
 
 - `zsh-syntax-highlighting` will highlight your commands to make sure they will work
-- `zsh-autosuggestions` tries to autocomplete commadns you have input previously, you can complete with `Cntrl+right-arrow`
+- `zsh-autosuggestions` tries to autocomplete commadns you have input previously, you can complete with `right-arrow`
 - utilities:
   - `weather [place]` shows the weather for that place, default is Hasselt
 - commands:
