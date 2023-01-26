@@ -10,11 +10,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Link zsh plugin in MacOS
 if [[ "$(uname)" == "Darwin" ]]; then
-  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 # Link zsh plugin in linux
 if [[ "$(uname)" == "Linux" ]]; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
