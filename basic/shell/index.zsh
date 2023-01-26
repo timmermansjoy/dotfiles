@@ -82,4 +82,4 @@ chpwd() ls -F
 
 
 
-plugins=(zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zsh-autosuggestions)
