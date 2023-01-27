@@ -3,16 +3,17 @@ cask_args appdir: '/Applications'
 tap 'homebrew/cask'
 tap 'homebrew/core'
 tap 'homebrew/bundle'
+tap 'homebrew/cask-fonts'
 
 #programming
-brew 'python'
+# brew 'python' # comes with macos
 brew 'node'
-
 brew 'coreutils'
 brew 'openssl'
 brew 'readline'
 brew 'mas' # for brew to install app store apps
 brew 'wget'
+brew 'ffmpeg'
 
 
 #shell
@@ -24,7 +25,9 @@ brew 'neofetch'
 brew 'tmux'
 brew 'vim'
 
+# programs
 cask 'google-chrome'
+cask 'docker'
 cask 'visual-studio-code'
 cask 'appcleaner'
 cask 'dozer'
@@ -32,11 +35,20 @@ cask 'discord'
 cask 'notion'
 cask 'microsoft-teams'
 cask 'microsoft-outlook'
-
-
-cask 'parallels'
+cask 'microsoft-azure-storage-explorer'
+# cask 'parallels'
+cask 'utm' # free alternative to parallels
 cask 'parsec'
 cask 'iina'
 
+#fonts
+cask 'font-jetbrains-mono'
+cask 'font-fira-code'
+cask 'font-fira-code-nerd-font' # nerd font for terminal icons
+cask 'font-hack-nerd-font'
 
-mas "magnet", id: 441258766
+
+mas "Magnet", id: 441258766
+mas "Dark Reader", id: 1438243180
+mas "1blocker", id: 1365531024
+mas "Microsoft Outlook", id: 985367838
