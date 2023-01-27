@@ -6,6 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export DOTFILES=$HOME/.dotfiles
+export HOMEBREW_BREWFILE=~/.dotfiles/specific/homebrew/Brewfile
 SYSTEM_CONFIG=$DOTFILES/basic/system/index.zsh
 
 # https://unix.stackexchange.com/a/151896/148053 - I don't understand, but it is what it is
