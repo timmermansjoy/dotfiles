@@ -7,17 +7,15 @@
 
 # Check for Homebrew
 if test ! "$(command -v brew)"; then
-    echo "  Installing Homebrew for you."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "  Installing Homebrew for you."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Run Homebrew through the Brewfile
-echo "› brew bundle"
+echo "> brew bundle"
 sleep 2
-brew bundle --file="specific/homebrew/Brewfile"
-# double because just running it once doesn't work
-sleep 2
-brew bundle --file="specific/homebrew/Brewfile"
+brew bundle --file="~/.dotfiles/specific/homebrew/Brewfile"
+# double because just running it once doesn't work`
 # For debugging
 # brew bundle --verbose --file="specific/homebrew/Brewfile"
 exit 0
