@@ -1,7 +1,7 @@
 cask_args appdir: '/Applications'
 
-repo = 'popcorn-official/popcorn-desktop'
-tap repo, "https://github.com/#{repo}.git"
+tap 'homebrew/cask'
+tap 'homebrew/core'
 tap 'homebrew/bundle'
 
 #programming
@@ -9,14 +9,14 @@ brew 'python'
 brew 'node'
 
 brew 'coreutils'
-brew 'bat' # cat with syntax highlighting
-brew 'fzf' # fuzzy finder
 brew 'openssl'
 brew 'readline'
 brew 'mas' # for brew to install app store apps
+brew 'wget'
+
 
 #shell
-brew 'zsh'
+# brew 'zsh' # comes with macos
 brew 'zsh-syntax-highlighting'
 brew 'zsh-autosuggestions'
 brew 'htop'
@@ -28,12 +28,15 @@ cask 'google-chrome'
 cask 'visual-studio-code'
 cask 'appcleaner'
 cask 'dozer'
+cask 'discord'
+cask 'notion'
+cask 'microsoft-teams'
+cask 'microsoft-outlook'
 
-cask 'popcorn-time'
+
 cask 'parallels'
 cask 'parsec'
 cask 'iina'
 
 
 mas "magnet", id: 441258766
-mas "Craft", id: 1487937127
