@@ -9,5 +9,5 @@ if [[ "$(uname)" == "Darwin" ]]; then
   softwareupdate -i -a
 
   # shellcheck disable=SC1090
-  source "${BASH_SOURCE%/*}"/set-defaults.sh
+  source ~/.dotfiles/specific/macos/set-defaults.sh
 fi
