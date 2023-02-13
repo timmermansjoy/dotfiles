@@ -4,16 +4,22 @@ This project is heavily inspired by @holman [dotfiles](https://github.com/holman
 
 These dotfiles work both on MacOS and Linux (tested on Ubuntu)
 
+## What is in this project
+
+I'm a Machine learning engineer that mainly works with MacOS and Linux. I use a lot of different technologies and I want to be able to use them all in the same way. This project is a collection of configuration files that I use to make sure I can be up and running with a new machine in no time. It also contains some useful scripts and aliases that I use on a daily basis.
+
+Feel free to use this project as a starting point for your own dotfiles. If you have any questions, feel free to open an issue.
+
 ## install
 
-all you have to do is clone the reposetory in ` ~/.dotfiles` the script should do the rest
+all you have to do is clone the reposetory in `~/.dotfiles` the script should do the rest
 
 ```sh
 git clone https://github.com/timmermansjoy/dotfiles.git ~/.dotfiles
 ~/.dotfiles/scripts/dotfiles-install.sh
 ```
 
-afterwards set zsh as the default shell
+afterwards set zsh as the default shell if it isn't already.
 
 ```sh
 chsh -s $(which zsh)

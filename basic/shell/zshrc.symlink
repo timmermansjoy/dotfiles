@@ -9,6 +9,10 @@ export DOTFILES=$HOME/.dotfiles
 export HOMEBREW_BREWFILE=~/.dotfiles/specific/homebrew/Brewfile
 SYSTEM_CONFIG=$DOTFILES/basic/system/index.zsh
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
+
 # https://unix.stackexchange.com/a/151896/148053 - I don't understand, but it is what it is
 local function _source () {
   local -r FILE="$1"
@@ -72,3 +76,10 @@ compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/specific/oh-my-zsh/p10k.zsh.symlink.
 [[ ! -f ~/.dotfiles/specific/oh-my-zsh/p10k.zsh.symlink ]] || source ~/.dotfiles/specific/oh-my-zsh/p10k.zsh.symlink
+
+# helps with some wierdness in pip
+export LDFLAGS="-L/opt/homebrew/opt/freetds/lib -L/opt/homebrew/opt/openssl@3/lib"
+export CFLAGS="-I/opt/homebrew/opt/freetds/include"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+
+

@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/cask'
 tap 'homebrew/core'
 tap 'homebrew/bundle'
+tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
 
 #programming
@@ -14,6 +15,7 @@ brew 'readline'
 brew 'mas' # for brew to install app store apps
 brew 'wget'
 brew 'ffmpeg'
+brew 'grep'
 
 
 #shell
@@ -40,6 +42,9 @@ cask 'microsoft-azure-storage-explorer'
 cask 'utm' # free alternative to parallels
 cask 'parsec'
 cask 'iina'
+cask 'pdf-squeezer'
+cask 'sensiblesidebuttons'
+cask 'scroll-reverser'
 
 #fonts
 cask 'font-jetbrains-mono'
@@ -52,3 +57,4 @@ mas "Magnet", id: 441258766
 mas "Dark Reader", id: 1438243180
 mas "1blocker", id: 1365531024
 mas "Microsoft Outlook", id: 985367838
+mas "Slack", id: 803453959

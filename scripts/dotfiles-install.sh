@@ -24,7 +24,7 @@ fail() {
 }
 
 setup_gitconfig() {
-  if ! [ -f specific/git/gitconfig-local.symlink ]; then
+  if ! [ -f ~/.gitconfig ]; then
     info 'setup gitconfig'
 
     user ' - What is your github author name?'
@@ -35,7 +35,7 @@ setup_gitconfig() {
     sed \
       -e "s/AUTHORNAME/$git_authorname/g" \
       -e "s/AUTHOREMAIL/$git_authoremail/g" \
-      specific/git/gitconfig-local.symlink.example >specific/git/gitconfig-local.symlink
+      ~/.dotfiles/specific/git/gitconfig-local.symlink.example >~/.dotfiles/specific/git/gitconfig-local.symlink
 
     success 'gitconfig'
   fi
@@ -111,7 +111,7 @@ link_file() {
 }
 
 install_dotfiles() {
-  info 'installing dotfiles'
+  info 'linking dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=false
 
@@ -127,7 +127,7 @@ install_dotfiles
 
 # check if M1 mac
 if [[ "$(uname -m)" == "arm64" ]]; then
-  info "Linking homebrew to /usr/local/bin for M1 macs"
+  info "Linking /opt/homebrew/bin to /usr/local/bin for M1 macs compatibility"
   sudo ln -s /opt/homebrew/bin /usr/local/bin
 fi
 
@@ -137,6 +137,7 @@ if source ~/.dotfiles/scripts/dependencies-install.sh; then
 else
   fail "error installing dependencies"
 fi
+
 #install packages on linux
 # if [[ "$(uname)" == "Linux" ]]; then
 #   info "installing packages"
@@ -152,13 +153,12 @@ fi
 
 info "setting up ssh"
 if [[ ! -f ~/.ssh/id_rsa ]]; then
-  ssh-keygen
+  ssh-keygen -t rsa -b 4096 -C " $(git config --global user.email) " -f ~/.ssh/id_rsa -N ""
   eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_rsa
   success "ssh setup"
 else
   success "ssh already setup"
 fi
 
 echo ''
-success '  All installed!'
+success 'All installed!'
