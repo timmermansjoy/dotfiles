@@ -78,8 +78,3 @@ zstyle ':completion:*' insert-tab pending
 source $DOTFILES/basic/shell/custom.sh
 
 chpwd() ls -F
-
-
-
-
-plugins=(zsh-autosuggestions)

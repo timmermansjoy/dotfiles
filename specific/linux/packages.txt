@@ -3,5 +3,4 @@ vim
 tmux
 htop
 neofetch
-zsh-syntax-highlighting
 code
