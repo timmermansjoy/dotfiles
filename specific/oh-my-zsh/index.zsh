@@ -15,6 +15,6 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 # Link zsh plugin in linux
 if [[ "$(uname)" == "Linux" ]]; then
-  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi

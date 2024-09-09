@@ -138,18 +138,18 @@ else
   fail "error installing dependencies"
 fi
 
-#install packages on linux
-# if [[ "$(uname)" == "Linux" ]]; then
-#   info "installing packages"
-#   if source ~/.dotfiles/scripts/dependencies-install-linux.sh
-#   then
-#     success "packages installed"
-#     info "setting zsh as default shell"
-#     chsh -s "$(command -v zsh)"
-#   else
-#     fail "error installing dependencies"
-#   fi
-# fi
+install packages on linux
+if [[ "$(uname)" == "Linux" ]]; then
+  info "installing packages"
+  if source ~/.dotfiles/scripts/dependencies-install-linux.sh
+  then
+    success "packages installed"
+    info "setting zsh as default shell"
+    chsh -s "$(command -v zsh)"
+  else
+    fail "error installing dependencies"
+  fi
+fi
 
 info "setting up ssh"
 if [[ ! -f ~/.ssh/id_rsa ]]; then
