@@ -2,7 +2,7 @@ export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(docker python git z brew virtualenv pyenv tmux)
+plugins=(docker python git z virtualenv tmux)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -1,26 +1,65 @@
 #!/bin/bash
+#
+# Run all dotfiles installers and related setup
 
-sudo apt update
+set -e          # Exit immediately if a command exits with a non-zero status
+set -o pipefail # Exit if any command in a pipeline fails
 
-# run all dotfiles installers
+# Utility functions for consistent output
+info() {
+  printf "\r  [ \033[00;34m..\033[0m ] %s\n" "$1"
+}
+
+success() {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] %s\n" "$1"
+}
+
+fail() {
+  printf "\r\033[2K  [ \033[0;31mFAIL\033[0m ] %s\n" "$1"
+  echo ''
+  exit 1
+}
+
 export DOTFILES="$HOME/.dotfiles"
 
-cd "$(dirname "$0")"/.. || exit
-find -H "$DOTFILES" -maxdepth 4 -name 'install.sh' -not -path '*.git*' -exec sh -c 'FILE="$1"; "$FILE"' _ {} \;
+info "Updating package lists"
+sudo apt update || fail "Failed to update package lists"
 
-info "adding zsh extensions"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+info "Running all dotfiles installers"
+cd "$(dirname "$0")/.." || fail "Failed to change directory"
+find -H "$DOTFILES" -maxdepth 4 -name 'install.sh' -not -path '*.git*' -exec sh -c 'FILE="$1"; "$FILE"' _ {} \; || fail "Failed to run dotfiles installers"
 
-info "adding vscode repo"
-wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+if [[ "$(uname)" == "Linux" ]]; then
+  info "Installing Zsh Autosuggestions"
+  ZSH_PLUGIN_DIR="$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+  if [[ ! -d "$ZSH_PLUGIN_DIR" ]]; then
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_PLUGIN_DIR" || fail "Failed to clone zsh-autosuggestions"
+    success "Zsh Autosuggestions installed"
+  else
+    success "Zsh Autosuggestions already installed"
+  fi
 
-info "install the packages inside specific/linux/packages.txt"
-xargs sudo apt -y -qq install < ~/.dotfiles/specific/linux/packages.txt
+  info "Installing Zsh Syntax Highlighting"
+  ZSH_HIGHLIGHT_DIR="$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+  if [[ ! -d "$ZSH_HIGHLIGHT_DIR" ]]; then
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_HIGHLIGHT_DIR" || fail "Failed to clone zsh-syntax-highlighting"
+    success "Zsh Syntax Highlighting installed"
+  else
+    success "Zsh Syntax Highlighting already installed"
+  fi
 
-info "installing lambda stack"
-wget -nv -O- https://lambdalabs.com/install-lambda-stack.sh | sh -
+  info "Installing packages from specific/linux/packages.txt"
+  PACKAGE_FILE="$DOTFILES/specific/linux/packages.txt"
+  if [[ -f "$PACKAGE_FILE" ]]; then
+    xargs sudo apt -y -qq install <"$PACKAGE_FILE" || fail "Failed to install packages from $PACKAGE_FILE"
+    success "Packages installed from $PACKAGE_FILE"
+  else
+    fail "Package list not found at $PACKAGE_FILE"
+  fi
 
+  info "Installing Lambda Stack"
+  wget -nv -O- https://lambdalabs.com/install-lambda-stack.sh | sh - || fail "Failed to install Lambda Stack"
+  success "Lambda Stack installed"
+fi
 
-
+success "Dotfiles setup completed successfully!"
