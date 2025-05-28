@@ -3,32 +3,32 @@
 # Custom functions
 
 function top_commands {
-    cat ~/.zsh_history | format_history | head -n20
+  cat ~/.zsh_history | format_history | head -n20
 }
 
 alias tc=top_commands
 
 function top_recent_commands {
-    tail -n1000 ~/.zsh_history | format_history | head -n20
+  tail -n1000 ~/.zsh_history | format_history | head -n20
 }
 alias trc=top_recent_commands
 
 function format_history {
-    cut -d ';' -f 2- 2>/dev/null |
-        awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}' |
-        sort -rn
+  cut -d ';' -f 2- 2>/dev/null |
+    awk '{a[$1]++ } END{for(i in a){print a[i] " " i}}' |
+    sort -rn
 }
 
 # Get weather report
 function weather {
-    curl -s "http://wttr.in/${1:-Hasselt}" | head -n 27
+  curl -s "http://wttr.in/${1:-Hasselt}" | head -n 27
 }
 alias weer="weather"
 
 # Get wifi password of given SSID
 function wifi_password {
-    wifi_name=$1
-    security find-generic-password -ga "$wifi_name" | grep "password:"
+  wifi_name=$1
+  security find-generic-password -ga "$wifi_name" | grep "password:"
 }
 
 #remap defaults
@@ -40,7 +40,6 @@ alias lhost="open http://localhost:8080"
 alias localh="open http://localhost:8080"
 alias dotfile='e ~/.dotfiles'
 alias dotfiles='e ~/.dotfiles'
-alias cpu="htop"
 alias myip="curl http://ipecho.net/plain; echo"
 alias finder="open ."
 

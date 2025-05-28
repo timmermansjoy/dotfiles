@@ -1,37 +1,44 @@
 ######################################
-# config
+# Ensure Shell Compatibility
+######################################
+if [[ -z "$ZSH_VERSION" ]]; then
+  echo "Error: This configuration is intended for zsh."
+  return 1
+fi
+
+######################################
+# Validate DOTFILES Variable
+######################################
+if [[ -z "$DOTFILES" ]]; then
+  echo "Error: DOTFILES variable is not set."
+  return 1
+fi
+
+######################################
+# Config
 ######################################
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+# Load functions
 fpath=($DOTFILES/basic/functions $fpath)
+for file in $DOTFILES/basic/functions/*; do
+  [ -r "$file" ] && source "$file"
+done
 
-autoload -U $DOTFILES/basic/functions/*(:t)
+# Initialize completion system
+autoload -Uz compinit
+compaudit | xargs chmod g-w,o-w 2>/dev/null
+compinit -u
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt NO_BG_NICE # don't nice background tasks
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt PROMPT_SUBST
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
-
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
-setopt HIST_REDUCE_BLANKS
-
-# don't expand aliases _before_ completion has finished
-#   like: git comm-[tab]
+setopt NO_BG_NICE NO_HUP NO_LIST_BEEP LOCAL_OPTIONS LOCAL_TRAPS
+setopt HIST_VERIFY SHARE_HISTORY EXTENDED_HISTORY PROMPT_SUBST
+setopt CORRECT COMPLETE_IN_WORD IGNORE_EOF APPEND_HISTORY
+setopt INC_APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS
 setopt complete_aliases
 
 bindkey '^[^[[D' backward-word
@@ -42,39 +49,34 @@ bindkey '^[[3~' delete-char
 bindkey '^?' backward-delete-char
 
 ######################################
-# window
+# Window
 ######################################
-# From http://dotfiles.org/~_why/.zshrc
-# Sets the window title nicely no matter where you are
 function title() {
-  # escape '%' chars in $1, make nonprintables visible
-  a=${(V)1//\%/\%\%}
-
-  # Truncate command, and join lines.
-  a=$(print -Pn "%40>...>$a" | tr -d "\n")
+  local input="${1:-Untitled}"
+  local escaped_input="${input//\%/\%\%}"
+  local truncated=$(print -Pn "%40>...>$escaped_input" | tr -d "\n")
 
   case $TERM in
   screen)
-    print -Pn "\ek$a:$3\e\\" # screen title (in ^A")
+    print -Pn "\ek$truncated:$3\e\\"
     ;;
-  xterm*|rxvt)
-    print -Pn "\e]2;$2\a" # plain xterm title ($3 for pwd)
+  xterm* | rxvt)
+    print -Pn "\e]2;$truncated\a"
     ;;
+  *) ;;
   esac
 }
 
 ######################################
-# completion
+# Completion
 ######################################
-# matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' verbose yes
 
 ######################################
-# customizations
+# Customizations
 ######################################
 source $DOTFILES/basic/shell/custom.sh
-
 chpwd() ls -F
