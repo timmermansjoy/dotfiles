@@ -125,11 +125,11 @@ install_dotfiles() {
 setup_gitconfig
 install_dotfiles
 
-# check if M1 mac
-if [[ "$(uname -m)" == "arm64" ]]; then
-  info "Linking /opt/homebrew/bin to /usr/local/bin for M1 macs compatibility"
-  sudo ln -s /opt/homebrew/bin /usr/local/bin
-fi
+# # check if M1 mac #TODO: check if still needed
+# if [[ "$(uname -m)" == "arm64" ]]; then
+#   info "Linking /opt/homebrew/bin to /usr/local/bin for M1 macs compatibility"
+#   sudo ln -s /opt/homebrew/bin /usr/local/bin
+# fi
 
 info "installing dependencies"
 if source ~/.dotfiles/scripts/dependencies-install.sh; then

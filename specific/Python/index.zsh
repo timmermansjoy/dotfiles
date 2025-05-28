@@ -3,6 +3,7 @@ alias python="python3"
 alias py="python3"
 alias pip="pip3"
 alias top="sudo asitop --color 5"
+alias prompt="files-to-prompt"
 # alias activate=". .venv/bin/activate"
 export PYTHONPYCACHEPREFIX="$HOME/.cache/pycache/"
 

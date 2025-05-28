@@ -5,6 +5,7 @@ tap 'homebrew/core'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/cask-fonts'
+tap 'teamookla/speedtest'
 
 #programming
 # brew 'python' # comes with macos
@@ -16,19 +17,19 @@ brew 'mas' # for brew to install app store apps
 brew 'wget'
 brew 'ffmpeg'
 brew 'grep'
-
+brew 'watch'
 
 #shell
-# brew 'zsh' # comes with macos
 brew 'zsh-syntax-highlighting'
 brew 'zsh-autosuggestions'
 brew 'htop'
-brew 'neofetch'
+brew 'fastfetch'
 brew 'tmux'
 brew 'vim'
+brew 'speedtest'
 
 # programs
-cask 'google-chrome'
+cask 'brave-browser'
 cask 'docker'
 cask 'visual-studio-code'
 cask 'appcleaner'
@@ -38,8 +39,7 @@ cask 'notion'
 cask 'microsoft-teams'
 cask 'microsoft-outlook'
 cask 'microsoft-azure-storage-explorer'
-# cask 'parallels'
-cask 'utm' # free alternative to parallels
+cask 'utm' # virtual machine emulator
 cask 'parsec'
 cask 'iina'
 cask 'pdf-squeezer'

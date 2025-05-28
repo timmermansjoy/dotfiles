@@ -43,7 +43,6 @@ alias dotfiles='e ~/.dotfiles'
 alias cpu="htop"
 alias myip="curl http://ipecho.net/plain; echo"
 alias finder="open ."
-alias pxl="cd /Users/Joy/Stack/PXL/3e_jaar"
 
 # Programs shortcuts
 alias s="osascript -e 'tell application \"Safari\" to activate'"
