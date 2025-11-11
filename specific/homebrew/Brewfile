@@ -1,23 +1,24 @@
 cask_args appdir: '/Applications'
 
-tap 'homebrew/cask'
-tap 'homebrew/core'
-tap 'homebrew/bundle'
-tap 'homebrew/cask-drivers'
-tap 'homebrew/cask-fonts'
 tap 'teamookla/speedtest'
 
 #programming
-# brew 'python' # comes with macos
+brew 'uv'
 brew 'node'
 brew 'coreutils'
-brew 'openssl'
+brew 'openssl@3'
 brew 'readline'
 brew 'mas' # for brew to install app store apps
 brew 'wget'
 brew 'ffmpeg'
 brew 'grep'
 brew 'watch'
+brew 'lazygit'
+brew 'fzf'
+brew 'tree'
+brew 'pre-commit'
+brew 'asitop'
+brew 'rsync'
 
 #shell
 brew 'zsh-syntax-highlighting'
@@ -29,22 +30,26 @@ brew 'vim'
 brew 'speedtest'
 
 # programs
+cask 'tailscale-app'
 cask 'brave-browser'
 cask 'docker'
 cask 'visual-studio-code'
 cask 'appcleaner'
-cask 'dozer'
+cask 'jordanbaird-ice'
 cask 'discord'
+cask 'slack'
 cask 'notion'
 cask 'microsoft-teams'
 cask 'microsoft-outlook'
-cask 'microsoft-azure-storage-explorer'
 cask 'utm' # virtual machine emulator
 cask 'parsec'
 cask 'iina'
 cask 'pdf-squeezer'
 cask 'sensiblesidebuttons'
 cask 'scroll-reverser'
+cask 'unifi-identity-endpoint'
+cask 'microsoft-outlook'
+cask 'wireshark-app'
 
 #fonts
 cask 'font-jetbrains-mono'
@@ -56,5 +61,3 @@ cask 'font-hack-nerd-font'
 mas "Magnet", id: 441258766
 mas "Dark Reader", id: 1438243180
 mas "1blocker", id: 1365531024
-mas "Microsoft Outlook", id: 985367838
-mas "Slack", id: 803453959

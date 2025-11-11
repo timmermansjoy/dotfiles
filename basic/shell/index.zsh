@@ -28,7 +28,6 @@ done
 
 # Initialize completion system
 autoload -Uz compinit
-compaudit | xargs chmod g-w,o-w 2>/dev/null
 compinit -u
 
 HISTFILE=~/.zsh_history
