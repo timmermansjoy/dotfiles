@@ -1,6 +1,12 @@
-#!/bin/bash
-#
+#!/usr/bin/env bash
 # run `update` periodically to make sure you're on the latest and greatest
+set -euo pipefail
 
-export DOTFILES=$HOME/.dotfiles
-$DOTFILES/scripts/dependencies-update.sh
+export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+
+if [[ ! -x "$DOTFILES/scripts/dependencies-update.sh" ]]; then
+  echo "dependencies-update.sh not found or not executable at: $DOTFILES/scripts/dependencies-update.sh" >&2
+  exit 1
+fi
+
+"$DOTFILES/scripts/dependencies-update.sh"
