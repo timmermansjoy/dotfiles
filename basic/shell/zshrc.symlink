@@ -6,28 +6,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export DOTFILES=$HOME/.dotfiles
-export HOMEBREW_BREWFILE=~/.dotfiles/specific/homebrew/Brewfile
 SYSTEM_CONFIG=$DOTFILES/basic/system/index.zsh
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 
 
-# https://unix.stackexchange.com/a/151896/148053 - I don't understand, but it is what it is
-local function _source () {
-  local -r FILE="$1"
-  shift
-  source "$FILE" "$@"
-}
-
 local function source_local () {
   if [[ -a $DOTFILES/.local ]]; then
-    _source $DOTFILES/.local
+    source $DOTFILES/.local
   fi
 }
-
 local function source_system () {
-  _source "$SYSTEM_CONFIG"
+  source "$SYSTEM_CONFIG"
 }
 
 function source_non_system () {
@@ -37,7 +28,7 @@ function source_non_system () {
 
   for FILE in $FILES; do
     if [ $FILE != $SYSTEM_CONFIG ]; then
-      _source $FILE
+      source $FILE
     fi
   done
 
@@ -54,28 +45,25 @@ function source_extensions () {
 
   for FILE in $FILES; do
     if [ $FILE != $SYSTEM_CONFIG ]; then
-      _source $FILE
+      source $FILE
     fi
   done
 
   unset FILES
 }
-
 source_local # load local-only variables (not commited)
 source_system # first source the system config, which sets critical variables...
 source_non_system # ...then sources other config files
 source_extensions
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+autoload -Uz compinit
+compinit -u
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/specific/oh-my-zsh/p10k.zsh.symlink.
-[[ ! -f ~/.dotfiles/specific/oh-my-zsh/p10k.zsh.symlink ]] || source ~/.dotfiles/specific/oh-my-zsh/p10k.zsh.symlink
 
 # helps with some wierdness in pip
 export LDFLAGS="-L/opt/homebrew/opt/freetds/lib -L/opt/homebrew/opt/openssl@3/lib"
@@ -83,3 +71,6 @@ export CFLAGS="-I/opt/homebrew/opt/freetds/include"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 
 
+
+# Added by Antigravity
+export PATH="/Users/joy/.antigravity/antigravity/bin:$PATH"

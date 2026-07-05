@@ -23,13 +23,6 @@ function format_history {
 function weather {
   curl -s "http://wttr.in/${1:-Hasselt}" | head -n 27
 }
-alias weer="weather"
-
-# Get wifi password of given SSID
-function wifi_password {
-  wifi_name=$1
-  security find-generic-password -ga "$wifi_name" | grep "password:"
-}
 
 #remap defaults
 alias rm="rm -rf"

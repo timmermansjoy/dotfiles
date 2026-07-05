@@ -26,9 +26,7 @@ for file in $DOTFILES/basic/functions/*; do
   [ -r "$file" ] && source "$file"
 done
 
-# Initialize completion system
-autoload -Uz compinit
-compinit -u
+# autoload/comprun in zshrc.symlink
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -37,7 +35,7 @@ SAVEHIST=10000
 setopt NO_BG_NICE NO_HUP NO_LIST_BEEP LOCAL_OPTIONS LOCAL_TRAPS
 setopt HIST_VERIFY SHARE_HISTORY EXTENDED_HISTORY PROMPT_SUBST
 setopt CORRECT COMPLETE_IN_WORD IGNORE_EOF APPEND_HISTORY
-setopt INC_APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY HIST_IGNORE_ALL_DUPS HIST_REDUCE_BLANKS
 setopt complete_aliases
 
 bindkey '^[^[[D' backward-word

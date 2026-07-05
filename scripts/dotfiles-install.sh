@@ -115,7 +115,7 @@ install_dotfiles
 # fi
 
 info "Installing dependencies"
-if source "$DOTFILES/scripts/dependencies-install.sh"; then
+if source "$DOTFILES/scripts/dependencies-install.sh" install; then
   success "Dependencies installed"
 else
   fail "Error installing dependencies"

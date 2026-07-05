@@ -1,7 +1,2 @@
 #!/bin/bash
-#
-# run all dotfiles installers
-export DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
-
-cd "$(dirname "$0")"/.. || exit
-find -H "$DOTFILES" -maxdepth 4 -name 'update.sh'  -not -path '*.git*' -exec sh -c 'FILE="$1"; "$FILE"' _ {} \;
+exec "$(dirname "$0")/dependencies-install.sh" update

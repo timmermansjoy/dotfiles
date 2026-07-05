@@ -19,6 +19,8 @@ brew 'tree'
 brew 'pre-commit'
 brew 'asitop'
 brew 'rsync'
+brew 'cmake'
+brew 'repomix'
 
 #shell
 brew 'zsh-syntax-highlighting'
@@ -31,7 +33,7 @@ brew 'speedtest'
 
 # programs
 cask 'tailscale-app'
-cask 'brave-browser'
+cask 'google-chrome'
 cask 'docker'
 cask 'visual-studio-code'
 cask 'appcleaner'
@@ -48,8 +50,9 @@ cask 'pdf-squeezer'
 cask 'sensiblesidebuttons'
 cask 'scroll-reverser'
 cask 'unifi-identity-endpoint'
-cask 'microsoft-outlook'
 cask 'wireshark-app'
+cask 'figma'
+
 
 #fonts
 cask 'font-jetbrains-mono'
